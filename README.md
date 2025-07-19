@@ -1,10 +1,9 @@
 # 🧬 Bayers Health Care
 
-This monorepo contains 3 applications:
+This monorepo contains 1 applications:
 
 - 🥗 **Diet Planner Web** (Frontend)
 - 🧠 **Backend API**
-- 🛠️ (Optional future: Admin/Service tools)
 
 ---
 
@@ -48,7 +47,7 @@ First, clone the repository containing the frontend and backend code to your loc
 git clone https://github.com/ajums/hackathon-bayerHealthCare.git
 ```
 
-### 2. Project Installation Dependencies
+### Project Installation Dependencies
 
 Install the required Node.js dependencies for the backend:
 
