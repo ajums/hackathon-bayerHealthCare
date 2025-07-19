@@ -112,4 +112,4 @@ $ pm2 start index.js --watch
 ```
 ### 4. ADD .env
 
-Add your .env files according to the .env.example file of each service in backend.
+Add your .env files according to the .env.example file
