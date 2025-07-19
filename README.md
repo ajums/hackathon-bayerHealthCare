@@ -36,12 +36,14 @@ Verify Node version:
 
 ```bash
 node -v
+```
 
 Follow these steps to set up FrontEnd and Backend:
 
 ### 1. Clone the Repository
 
-First, clone the repository containing the frontend and backend code to your local machine using Git:
+First, clone the repository containing the frontend and backend code to your local machine using 
+Git:
 
 ```bash
 git clone https://github.com/ajums/hackathon-bayerHealthCare.git
