@@ -8,6 +8,8 @@ import ActivityLevelSelect from '../molecules/ActivityLevelsSelect';
 import BmiSlider from '../molecules/BmiSlider';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
+
 
 export default function DietPlannerForm() {
   const [height, setHeight] = useState('');
@@ -65,6 +67,7 @@ export default function DietPlannerForm() {
     }
     setLoading(false);
   };
+   const toCamelCase = (str) =>str.toLowerCase().replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -103,14 +106,19 @@ export default function DietPlannerForm() {
                     <Col key={index}>
                     <Card className="h-100 shadow-sm">
                         <Card.Body>
+                        <Card.Title className="mb-1">
+                          <u><strong>{plan.meal}</strong></u>
+                        </Card.Title>
                         <Card.Title className="mb-2">{plan.description}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
-                            {plan.food_type_name} | {plan.calories} kcal
+                            <Badge bg={plan.food_type_name === 'veg' ? 'success' : 'danger'}>
+                                {toCamelCase(plan.food_type_name)}
+                            </Badge>{' '}| {plan.calories} kcal
                         </Card.Subtitle>
-                        <hr />
+                        {/* <hr />
                         <p className="mb-1"><strong>Height:</strong> {plan.height} cm</p>
                         <p className="mb-1"><strong>Activity Level:</strong> {plan.activity_level}</p>
-                        <p className="mb-1"><strong>BMI Range:</strong> {plan.bmi_min} - {plan.bmi_max}</p>
+                        <p className="mb-1"><strong>BMI Range:</strong> {plan.bmi_min} - {plan.bmi_max}</p> */}
                         </Card.Body>
                         <Card.Footer>
                         <small className="text-muted">
