@@ -1,0 +1,23 @@
+name: Admin and Customer - Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - './**'
+      
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          command_timeout: 20m
+          host: ${{secrets.hostip}}
+          username: ${{secrets.hostusername}}
+          key: ${{secrets.hostkey}}
+          script: |
+            ./update_frontend.sh
