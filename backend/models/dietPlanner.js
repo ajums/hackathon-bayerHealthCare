@@ -14,7 +14,8 @@ async function getDietPlanByParams(height, activity, bmi) {
       dt.name AS food_type_name,
       dplan.description, 
       dplan.calories,
-      dplan.meal
+      dplan.meal,
+      dp.created_on
     FROM diet_planner AS dp
     INNER JOIN diet_type AS dt ON dt.id = dp.diet_type_id
     INNER JOIN diet_plan AS dplan ON dplan.diet_type_id = dp.diet_type_id
