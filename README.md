@@ -1,24 +1,42 @@
-# Sequel
+# 🧬 Bayers Health Care
 
-This repository is for Sequel Application
-3 separate apps
+This monorepo contains 3 applications:
 
-- Diet Planner Web
-- Backend
+- 🥗 **Diet Planner Web** (Frontend)
+- 🧠 **Backend API**
+- 🛠️ (Optional future: Admin/Service tools)
 
-### Web applications build with:
+---
+
+## 🖥️ Tech Stack
+
+### Web App (Frontend)
 
 - ⚡️ Next.js 15
 - ⚛️ React 19
-- ✨ Javascript
+- ✨ JavaScript
 - 💨 Bootstrap CSS
-- 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
+- 📏 ESLint (auto-fixes & sorts imports)
 
-## Prerequisites:
+### Backend
 
-We are using **npm** as the package manager.
-Make sure your are using the latest version of node version v18.16.0
-`node -v`
+- 🧩 Node.js (v18.16.0+)
+- 🐬 MySQL
+- 📦 Express.js (assumed)
+- 🔐 dotenv
+
+---
+
+## 🚀 Prerequisites
+
+- Install [Node.js](https://nodejs.org/en) v18.16.0 or higher
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- MySQL running locally or via Docker/cloud
+
+Verify Node version:
+
+```bash
+node -v
 
 Follow these steps to set up FrontEnd and Backend:
 
@@ -46,6 +64,7 @@ cd bayer-health-care
 $ npm install
 ```
 
+
 ## Web App
 
 ### Running :: Web App [Watch Mode]
@@ -58,7 +77,10 @@ $ npm run dev
 
 Add your .env files according to the .env.example file of each service in backend.
 
-
+```sh
+# Route to module
+http://localhost:3000/diet-planner
+```
 
 # How to Run Backend
 
