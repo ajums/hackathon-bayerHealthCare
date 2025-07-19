@@ -54,6 +54,12 @@ $ npm install
 $ npm run dev
 ```
 
+## ADD .env
+
+Add your .env files according to the .env.example file of each service in backend.
+
+
+
 # How to Run Backend
 
 This README.md file provides a step-by-step guide on how to run the backend of our project. To get started, please ensure you have the following prerequisites installed on your system:
@@ -71,6 +77,17 @@ cd backend
 
 ```bash
 npm install
+```
+
+### 3. Starting Backend
+
+```sh
+$ npm start
+```
+
+```sh
+#incase if you are using pm2 you can start 
+$ pm2 start index.js --watch
 ```
 ### 4. ADD .env
 
