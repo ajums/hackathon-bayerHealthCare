@@ -1,40 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Sequel
 
-## Getting Started
+This repository is for Sequel Application
+3 separate apps
 
-First, run the development server:
+- Diet Planner Web
+- Backend
+
+### Web applications build with:
+
+- ⚡️ Next.js 15
+- ⚛️ React 19
+- ✨ Javascript
+- 💨 Bootstrap CSS
+- 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
+
+## Prerequisites:
+
+We are using **npm** as the package manager.
+Make sure your are using the latest version of node version v18.16.0
+`node -v`
+
+Follow these steps to set up FrontEnd and Backend:
+
+### 1. Clone the Repository
+
+First, clone the repository containing the frontend and backend code to your local machine using Git:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ajums/hackathon-bayerHealthCare.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Project Installation Dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Install the required Node.js dependencies for the backend:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+cd bayer-health-care
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Installation
 
-## Learn More
+```sh
+# Install NPM dependencies
+$ npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Web App
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Running :: Web App [Watch Mode]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+$ npm run dev
+```
 
-## Deploy on Vercel
+# How to Run Backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This README.md file provides a step-by-step guide on how to run the backend of our project. To get started, please ensure you have the following prerequisites installed on your system:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- [Node.js](https://nodejs.org/) version 18 or higher
+
+
+### 2. Install Dependencies
+
+Install the required Node.js dependencies for the backend:
+
+```bash
+cd backend
+```
+
+```bash
+npm install
+```
+### 4. ADD .env
+
+Add your .env files according to the .env.example file of each service in backend.
