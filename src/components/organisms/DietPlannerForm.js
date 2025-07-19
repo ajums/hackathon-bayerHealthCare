@@ -68,6 +68,37 @@ export default function DietPlannerForm() {
     setLoading(false);
   };
    const toCamelCase = (str) =>str.toLowerCase().replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
+   const exportRef = useRef();
+
+//   const handleDownloadPDF = () => {
+//     const element = exportRef.current;
+
+//     const options = {
+//       margin:       0.5,
+//       filename:     'meal-plans.pdf',
+//       image:        { type: 'jpeg', quality: 0.98 },
+//       html2canvas:  { scale: 2 },
+//       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+//     };
+
+//     html2pdf().set(options).from(element).save();
+//   };
+  const handleDownloadPDF = async () => {
+    // Dynamically import html2pdf only on client side
+    const html2pdf = (await import('html2pdf.js')).default;
+
+    const element = exportRef.current;
+
+    const options = {
+      margin: 0.5,
+      filename: 'meal-plans.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(element).save();
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -96,10 +127,21 @@ export default function DietPlannerForm() {
         </Button>
       </Row>
       {result && (
-        <Row className="mt-3">
-            <Container className="my-4">
-            <h3 className="mb-4 text-center">Personalized Diet Plans</h3>
+  <Row className="mt-3">
+    <Container className="my-4">
+      <h3 className="mb-4 text-center">Personalized Diet Plans</h3>
 
+      {result.length > 0 && (
+        <div className="d-flex justify-content-end mb-3">
+          {/* <Button variant="primary" size="sm" onClick={() => window.print()}>
+            Print Plans
+          </Button> */}
+           <Button variant="primary" size="sm" onClick={handleDownloadPDF}>
+            Export as PDF
+        </Button>
+        </div>
+      )}
+        <div ref={exportRef} style={{ padding: '10px', backgroundColor: '#fff', color: '#000' }}>
             {result.length > 0 ? (
                 <Row xs={1} sm={2} md={3} className="g-4">
                 {result.map((plan, index) => (
@@ -107,18 +149,14 @@ export default function DietPlannerForm() {
                     <Card className="h-100 shadow-sm">
                         <Card.Body>
                         <Card.Title className="mb-1">
-                          <u><strong>{plan.meal}</strong></u>
+                            <u><strong>{plan.meal}</strong></u>
                         </Card.Title>
                         <Card.Title className="mb-2">{plan.description}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
-                            <Badge bg={plan.food_type_name === 'veg' ? 'success' : 'danger'}>
-                                {toCamelCase(plan.food_type_name)}
+                            <Badge bg={plan.food_type_name.toLowerCase() === 'veg' ? 'success' : 'danger'}>
+                            {toCamelCase(plan.food_type_name)}
                             </Badge>{' '}| {plan.calories} kcal
                         </Card.Subtitle>
-                        {/* <hr />
-                        <p className="mb-1"><strong>Height:</strong> {plan.height} cm</p>
-                        <p className="mb-1"><strong>Activity Level:</strong> {plan.activity_level}</p>
-                        <p className="mb-1"><strong>BMI Range:</strong> {plan.bmi_min} - {plan.bmi_max}</p> */}
                         </Card.Body>
                         <Card.Footer>
                         <small className="text-muted">
@@ -130,16 +168,16 @@ export default function DietPlannerForm() {
                 ))}
                 </Row>
             ) : (
-                <div className="text-center text-muted mt-4" >
-                <p style={{ fontSize: '1.2rem',fontWeight: 'bold',color: 'white' }}>No diet plans available!!</p>
+                <div className="text-center text-muted mt-4">
+                <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
+                    No diet plans available!!
+                </p>
                 </div>
             )}
-            </Container>
-            {/* <Col>
-            <pre style={{ color: 'white' }}>{JSON.stringify(result, null, 2)}</pre>
-          </Col> */}
-        </Row>
-    )}
+        </div>
+    </Container>
+  </Row>
+)}
     </Form>
   );
 }
